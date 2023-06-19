@@ -1,0 +1,20 @@
+{
+    "name": "marc/back-end-hotel-miranda",
+    "description": "Developing php elements",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mcpicornell"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {
+        "eftec/bladeone": "^4.9"
+    },
+    "autoload": {},
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    }
+}
