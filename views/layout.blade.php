@@ -30,7 +30,7 @@
                     <img class="burger__img" src="/../img/header/line.svg" />
                     <img class="burger__img" src="/../img/header/line.svg" />
                 </a>
-                <a href="index.html" style="text-decoration: none ; cursor: pointer;">
+                <a  style="text-decoration: none ; cursor: pointer;">
                     <img class="inner__logo" src="/../img/header/H.svg" />
                     <img class="inner__title" src="/../img/header/HotelMiranda.svg" />
                 </a>

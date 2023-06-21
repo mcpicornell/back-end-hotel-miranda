@@ -1,7 +1,7 @@
- <?php $_shouldextend[1]=1; ?>
+<?php $_shouldextend[1]=1; ?>
 
- <?php $this->startSection('content'); ?>
- <section class="section-about-us-4">
+<?php $this->startSection('content'); ?>
+<section class="section-about-us-4">
  <div class="section-about-us-4__section-luxury">
  <h4 class="section-luxury__ultimate">THE ULTIMATE LUXURY</h4>
  <h3 class="section-luxury__us">About Us</h3>
@@ -42,9 +42,9 @@
  </div>
 
  </div>
- </section>
+</section>
 
- <section class="section-restaurant">
+<section class="section-restaurant">
  <div class="section-restaurant__img-container">
  <img class="img-container__img-restaurant" src="/../img/fondoGris.jpg">
  </div>
@@ -58,9 +58,9 @@
 
  <a class="button restaurant__button"><span class="button__restaurant-text">TAKE A TOUR</span></a>
  </div>
- </section>
+</section>
 
- <section class="section-slider-facilities">
+<section class="section-slider-facilities">
  <h4 class="section-slider-facilities__subtitle">FACILITIES</h4>
  <h3 class="section-slider-facilities__title">Core Features</h3>
 
@@ -157,9 +157,9 @@
  </div>
 
 
- </section>
+</section>
 
- <section class="section-fun-facts">
+<section class="section-fun-facts">
 
  <h4 class="sections-fun-facts__subtitle">COUNTER</h4>
  <h3 class="sections-fun-facts__title">Some Fun Facts</h3>
@@ -201,7 +201,7 @@
  </div>
 
 
- </section>
+</section>
 
- <?php $this->stopSection(); ?>
+<?php $this->stopSection(); ?>
 <?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

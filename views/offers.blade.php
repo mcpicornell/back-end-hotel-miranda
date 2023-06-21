@@ -11,24 +11,43 @@
     </div>
 </section>
 
-<section class="section-offer-rooms">
+
+
+
+
+@php
+$count = 0;
+@endphp
+
+@if(!empty($rooms))
+
+    @foreach($rooms as $room)
+        @if($count < 5)
+    <section class="section-offer-rooms">
     <div class="section-offer-rooms__img">
-        <img class="img__offer-rooms" src="/../img/fondoGris.jpg" />
+    @if (!empty($room->photos))
+            @php
+                $photos = json_decode($room->photos, true);
+            @endphp
+            @if (is_array($photos) && count($photos) > 0)
+                <img class="img__offer-rooms" src="{{ $photos[3] }}" />
+            @endif
+    @endif
         <div class="img__prices-offer">
             <div class="prices-offer__container">
-                <span class="prices-offer__gold">$500</span>
+                <span class="prices-offer__gold">${{$room->price}}</span>
                 <span class="gold__night">/Night</span>
             </div>
 
-            <span class="prices-offer__red">$345<span class="red__night">/Night</span></span>
+            <span class="prices-offer__red">${{$room->offerPrice}}<span class="red__night">/Night</span></span>
         </div>
     </div>
 
     <div class="section-offer-rooms__details-room-offer">
         <div class="details-room-offer__title-box">
-            <h4 class="subtitle details-room-offer__subtitle">Double Bed</h4>
+            <h4 class="subtitle details-room-offer__subtitle">{{$room->roomType}}</h4>
 
-            <h3 class="title details-room-offer__title">Luxury Double Bed</h3>
+            <h3 class="title details-room-offer__title">{{$room->roomName}}</h3>
 
         </div>
 
@@ -91,7 +110,14 @@
         </div>
         <a class="button details-room-offer__button"><span class="button__text-offer">Book Now</span></a>
     </div>
-</section>
+    @php
+        $count++;
+    @endphp
+    </section>
+    @endif
+    @endforeach
+    @endif
+
 
 
 <section class="section-popular-rooms">
@@ -100,138 +126,71 @@
     <h3 class="title section-popular-rooms__title">Popular Rooms</h3>
 
     <div class="section-popular-rooms__img-container-slider">
-        <div class='section-selection-rooms__rooms' style="margin: 0 auto; width: 90%; padding-bottom: 35px;">
-            <img class="rooms__img" src="/../img/fondoGris.jpg" />
 
-            <!-- BOTONES PARA EL SLIDER -->
+    
+        @php
+        $count = 0;
+        @endphp
 
-            <div class="">
-                <a></a>
-                <a></a>
-            </div>
+        @if(!empty($rooms))
 
-            <div class="rooms section-hand-picked__rectangle">
-                <div class="rectangle__img">
-                    <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
-                </div>
-            </div>
+            @foreach($rooms as $room)
+                @if($count < 3)
+    
+                <div class='section-selection-rooms__rooms' id="rooms-card" style="margin: 0 auto; width: 90%; padding-bottom: 35px; border-radius: 5px;">
 
-            <div class="rooms__details">
-                <h4 class="details__title">Minimal Duplex Room</h4>
-                <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
-                    tempor.</p>
-                <div class="details__price-room-option">
-                    <span class="price-room-oprion__price">$345/Night</span>
-                    <span class="price-room-oprion__option">Booking Now</span>
+                @if (!empty($room->photos))
+                    @php
+                        $photos = json_decode($room->photos, true);
+                    @endphp
+                    @if (is_array($photos) && count($photos) > 0)
+                    <a href="roomDetails.php?id={{ $room->roomId }}">
+                        <img class="rooms__img" src="{{ $photos[$count] }}" alt="room-photo">
+                    </a>
+                    @endif
+                @endif
+
+                <div class="rooms section-hand-picked__rectangle">
+                    <div class="rectangle__img">
+                        <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
+                    </div>
+                    <div class="rooms rectangle__img">
+                        <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
+                    </div>
+                    <div class="rooms rectangle__img">
+                        <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
+                    </div>
+                    <div class="rooms rectangle__img">
+                        <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
+                    </div>
+                    <div class="rooms rectangle__img">
+                        <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
+                    </div>
+                    <div class="rooms rectangle__img">
+                        <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
+                    </div>
+                    <div class="rooms rectangle__img">
+                        <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
+                    </div>
                 </div>
-            </div>
+
+                <div class="rooms__details">
+                    <h4 class="details__title">{{ $room->roomName }}</h4>
+                    <p class="details__text" >Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
+                        tempor.</p>
+                    <div class="details__price-room-option">
+                        <span class="price-room-oprion__price">${{ $room->price }}/Night</span>
+                        <span class="price-room-oprion__option">Booking Now</span>
+                    </div>
+                </div>
         </div>
-        <div class='section-selection-rooms__rooms' style="margin: 0 auto; width: 90%; padding-bottom: 35px;">
-            <img class="rooms__img" src="/../img/fondoGris.jpg" />
-
-            <!-- BOTONES PARA EL SLIDER -->
-
-            <div class="">
-                <a></a>
-                <a></a>
-            </div>
-
-            <div class="rooms section-hand-picked__rectangle">
-                <div class="rectangle__img">
-                    <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
-                </div>
-            </div>
-
-            <div class="rooms__details">
-                <h4 class="details__title">Minimal Duplex Room</h4>
-                <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
-                    tempor.</p>
-                <div class="details__price-room-option">
-                    <span class="price-room-oprion__price">$345/Night</span>
-                    <span class="price-room-oprion__option">Booking Now</span>
-                </div>
-            </div>
-        </div>
-        <div class='section-selection-rooms__rooms' style="margin: 0 auto; width: 90%; padding-bottom: 35px;">
-            <img class="rooms__img" src="/../img/fondoGris.jpg" />
-
-            <!-- BOTONES PARA EL SLIDER -->
-
-            <div class="">
-                <a></a>
-                <a></a>
-            </div>
-
-            <div class="rooms section-hand-picked__rectangle">
-                <div class="rectangle__img">
-                    <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
-                </div>
-            </div>
-
-            <div class="rooms__details">
-                <h4 class="details__title">Minimal Duplex Room</h4>
-                <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
-                    tempor.</p>
-                <div class="details__price-room-option">
-                    <span class="price-room-oprion__price">$345/Night</span>
-                    <span class="price-room-oprion__option">Booking Now</span>
-                </div>
-            </div>
-        </div>
+        @php
+            $count++;
+        @endphp
+        @endif
+        @endforeach
+        @endif
+        
     </div>
 
 </section>

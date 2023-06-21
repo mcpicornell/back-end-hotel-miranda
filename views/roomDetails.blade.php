@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <section class="section-rooms-luxury">
     <h4 class="section-rooms-luxury__ultimate">THE ULTIMATE LUXURY</h4>
     <h3 class="section-rooms-luxury__room">Ultimate Room</h3>
@@ -12,16 +14,30 @@
 
 <section class="section-room-availability">
 
+<!-- @php
+var_dump($room)
+@endphp -->
+
+@if (!empty($room))
+
+
     <div class="section-room-availability__container">
         <div class="container__section-room-availability">
-            <h4 class="subtitle section-room-availability__subtitle">DOUBLE BED</h4>
-            <h3 class="title section-room-availability__title">Luxury Double Bed</h3>
-            <h3 class="section-hand-picked__price-gold section-room-availability__price-gold">$345<span class="price-gold__night">/Night</span></h3>
+            <h4 class="subtitle section-room-availability__subtitle">{{$room->roomType}}</h4>
+            <h3 class="title section-room-availability__title">{{$room->roomName}}</h3>
+            <h3 class="section-hand-picked__price-gold section-room-availability__price-gold">${{$room->price}}<span class="price-gold__night">/Night</span></h3>
         </div>
 
 
         <div class="section-room-avaliability__img">
-            <img class="img__room-details" src="/../img/fondoGris.jpg" alt="">
+        @if (!empty($room->photos))
+            @php
+                $photos = json_decode($room->photos, true);
+            @endphp
+            @if (is_array($photos) && count($photos) > 0)
+            <img class="img__room-details" src="{{ $photos[0] }}" alt="room-photo">
+            @endif
+            @endif
         </div>
     </div>
 
@@ -122,6 +138,11 @@
 
 </section>
 
+@else
+<strong>No rooms found.</strong>
+
+@endif
+
 <section class="section-founder">
     <div class="section-founder__img-container">
         <img class="img-container__founder-img" src="/../img/fondoGris.jpg" />
@@ -159,15 +180,30 @@
 
     <div class="section-related-rooms__container-related-rooms">
 
+    @if(!empty($rooms))
+
+    @php
+    $count = 0;
+    @endphp
+
+    @foreach($rooms as $element)
+    @if($element->roomType == $room->roomType)
+        @if($count < 2)
+
         <div class='section-selection-rooms__rooms' class="container-related-rooms__container-img">
-            <img class="rooms__img" src="/../img/fondoGris.jpg" />
 
-            <!-- BOTONES PARA EL SLIDER -->
-
-            <div class="">
-                <a></a>
-                <a></a>
-            </div>
+        @if (!empty($element->photos))
+            @php
+                $photos = json_decode($element->photos, true);
+            @endphp
+            @if (is_array($photos) && count($photos) > 0)
+            
+            <a href="roomDetails.php?id={{ $element->roomId }}">
+                <img class="rooms__img" src="{{ $photos[0] }}" />
+            </a>
+            
+            @endif
+        @endif
 
             <div class="rooms section-hand-picked__rectangle">
                 <div class="rectangle__img">
@@ -194,60 +230,22 @@
             </div>
 
             <div class="rooms__details">
-                <h4 class="details__title">Minimal Duplex Room</h4>
+                <h4 class="details__title">{{$element->roomName}}</h4>
                 <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
                     tempor.</p>
                 <div class="details__price-room-option">
-                    <span class="price-room-oprion__price">$345/Night</span>
+                    <span class="price-room-oprion__price">${{$element->price}}/Night</span>
                     <span class="price-room-oprion__option">Booking Now</span>
                 </div>
             </div>
         </div>
-
-        <div class='section-selection-rooms__rooms' class="container-related-rooms__container-img">
-            <img class="rooms__img" src="/../img/fondoGris.jpg" />
-
-            <!-- BOTONES PARA EL SLIDER -->
-
-            <div class="">
-                <a></a>
-                <a></a>
-            </div>
-
-            <div class="rooms section-hand-picked__rectangle">
-                <div class="rectangle__img">
-                    <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
-                </div>
-                <div class="rooms rectangle__img">
-                    <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
-                </div>
-            </div>
-
-            <div class="rooms__details">
-                <h4 class="details__title">Minimal Duplex Room</h4>
-                <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
-                    tempor.</p>
-                <div class="details__price-room-option">
-                    <span class="price-room-oprion__price">$345/Night</span>
-                    <span class="price-room-oprion__option">Booking Now</span>
-                </div>
-            </div>
-        </div>
+            @php
+                $count++;
+            @endphp
+        @endif
+        @endif
+    @endforeach
+    @endif  
 
     </div>
 

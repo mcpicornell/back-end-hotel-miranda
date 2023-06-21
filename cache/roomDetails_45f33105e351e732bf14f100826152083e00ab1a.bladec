@@ -1,27 +1,43 @@
- <?php $_shouldextend[1]=1; ?>
+<?php $_shouldextend[1]=1; ?>
 
- <?php $this->startSection('content'); ?>
+<?php $this->startSection('content'); ?>
 
- <section class="section-rooms-luxury">
+
+
+<section class="section-rooms-luxury">
  <h4 class="section-rooms-luxury__ultimate">THE ULTIMATE LUXURY</h4>
  <h3 class="section-rooms-luxury__room">Ultimate Room</h3>
  <div class="section-luxury__container">
  <h5 class="container__span-home">Home<span class='span-home__effect'>|</span><span class="span-home__about">Room Details</span></h5>
  </div>
- </section>
+</section>
 
- <section class="section-room-availability">
+<section class="section-room-availability">
+
+<!-- <?php 
+var_dump($room)
+ ?> -->
+
+<?php if(!empty($room)): ?>
+
 
  <div class="section-room-availability__container">
  <div class="container__section-room-availability">
- <h4 class="subtitle section-room-availability__subtitle">DOUBLE BED</h4>
- <h3 class="title section-room-availability__title">Luxury Double Bed</h3>
- <h3 class="section-hand-picked__price-gold section-room-availability__price-gold">$345<span class="price-gold__night">/Night</span></h3>
+ <h4 class="subtitle section-room-availability__subtitle"><?php echo \htmlentities($room->roomType??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
+ <h3 class="title section-room-availability__title"><?php echo \htmlentities($room->roomName??'', ENT_QUOTES, 'UTF-8', false); ?></h3>
+ <h3 class="section-hand-picked__price-gold section-room-availability__price-gold">$<?php echo \htmlentities($room->price??'', ENT_QUOTES, 'UTF-8', false); ?><span class="price-gold__night">/Night</span></h3>
  </div>
 
 
  <div class="section-room-avaliability__img">
- <img class="img__room-details" src="/hotel-miranda/img/fondoGris.jpg" alt="">
+ <?php if(!empty($room->photos)): ?>
+ <?php 
+ $photos = json_decode($room->photos, true);
+ ?>
+ <?php if(is_array($photos) && count($photos) > 0): ?>
+ <img class="img__room-details" src="<?php echo \htmlentities($photos[0]??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="room-photo">
+ <?php endif; ?>
+ <?php endif; ?>
  </div>
  </div>
 
@@ -49,9 +65,9 @@
  ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut
  labore et dolore magnam aliquam quaerat voluptatem.
  </p>
- </section>
+</section>
 
- <section class="section-amenities">
+<section class="section-amenities">
  <h3 class="section-amenities__title">Amenities</h3>
 
  <hr class="hr section-amenities__hr" />
@@ -59,77 +75,82 @@
  <div class="section-amenities__amenities">
 
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.1airConditioner.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.1airConditioner.svg" />
  <span class="amenities-container__span">Air Conditioner</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.2breakfast.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.2breakfast.svg" />
  <span class="amenities-container__span">Breakfast</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.3cleaning.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.3cleaning.svg" />
  <span class="amenities-container__span">Cleaning</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.4grocery.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.4grocery.svg" />
  <span class="amenities-container__span">Grocery</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.5shopNear.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.5shopNear.svg" />
  <span class="amenities-container__span">Shop near</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.6onlineSupport.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.6onlineSupport.svg" />
  <span class="amenities-container__span">24/7 Online Support</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/1.7smartSecurity.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/1.7smartSecurity.svg" />
  <span class="amenities-container__span">Smart Security</span>
  </div>
 
 
 
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.1wifi.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.1wifi.svg" />
  <span class="amenities-container__span">Hight speed WiFi</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.2kitchen.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.2kitchen.svg" />
  <span class="amenities-container__span">Kitchen</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.3shower.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.3shower.svg" />
  <span class="amenities-container__span">Shower</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.4singleBed.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.4singleBed.svg" />
  <span class="amenities-container__span">Single Bed</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.5towels.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.5towels.svg" />
  <span class="amenities-container__span">Towels</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.6locker.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.6locker.svg" />
  <span class="amenities-container__span">Strong Locker</span>
  </div>
  <div class="amenities__amenities-container">
- <img class="amenities-container__img" src="/hotel-miranda/img/amenities/2.7expertTeam.svg" />
+ <img class="amenities-container__img" src="/../img/amenities/2.7expertTeam.svg" />
  <span class="amenities-container__span">Expert Team</span>
  </div>
 
  </div>
 
- </section>
+</section>
 
- <section class="section-founder">
+<?php else: ?>
+<strong>No rooms found.</strong>
+
+<?php endif; ?>
+
+<section class="section-founder">
  <div class="section-founder__img-container">
- <img class="img-container__founder-img" src="/hotel-miranda/img/fondoGris.jpg" />
+ <img class="img-container__founder-img" src="/../img/fondoGris.jpg" />
  <div class="img-container__check-container">
- <img class="check-container__circle" src="/hotel-miranda/img/checkCircle.svg" />
+ <img class="check-container__circle" src="/../img/checkCircle.svg" />
 
  <div class="check-container__check">
- <img class="check__img-check" src="/hotel-miranda/img/check.svg" />
+ <img class="check__img-check" src="/../img/check.svg" />
  </div>
 
  </div>
@@ -140,9 +161,9 @@
  <p class="section-founder__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
  incididunt ut labore et dolore.</p>
 
- </section>
+</section>
 
- <section class="section-cancellation">
+<section class="section-cancellation">
  <h3 class="title section-cancellation__title">Cancellation</h3>
  <hr class="hr section-cancellation__hr" />
  <p class="text section-cancellation__text">
@@ -151,113 +172,89 @@
  refund.
  </p>
 
- </section>
+</section>
 
- <section class="section-related-rooms">
+<section class="section-related-rooms">
  <h3 class="title section-related-rooms__title">Related Rooms</h3>
  <hr class="hr section-related-rooms__hr" />
 
  <div class="section-related-rooms__container-related-rooms">
 
+ <?php if(!empty($rooms)): ?>
+
+ <?php 
+ $count = 0;
+ ?>
+
+ <?php $__currentLoopData = $rooms; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $element): $loop = $this->incrementLoopIndices();  ?>
+ <?php if($element->roomType == $room->roomType): ?>
+ <?php if($count < 2): ?>
+
  <div class='section-selection-rooms__rooms' class="container-related-rooms__container-img">
- <img class="rooms__img" src="/hotel-miranda/img/fondoGris.jpg" />
 
- <!-- BOTONES PARA EL SLIDER -->
-
- <div class="">
- <a></a>
- <a></a>
- </div>
+ <?php if(!empty($element->photos)): ?>
+ <?php 
+ $photos = json_decode($element->photos, true);
+ ?>
+ <?php if(is_array($photos) && count($photos) > 0): ?>
+ 
+ <a href="roomDetails.php?id=<?php echo \htmlentities($element->roomId??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <img class="rooms__img" src="<?php echo \htmlentities($photos[0]??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ </a>
+ 
+ <?php endif; ?>
+ <?php endif; ?>
 
  <div class="rooms section-hand-picked__rectangle">
  <div class="rectangle__img">
- <img class="img rectangle__bed" src="/hotel-miranda/img/handPickedRooms/1.bed.svg" />
+ <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
  </div>
  <div class="rooms rectangle__img">
- <img class="img rectangle__wifi" src="/hotel-miranda/img/handPickedRooms/2.wifi.svg" />
+ <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
  </div>
  <div class="rooms rectangle__img">
- <img class="img rectangle__car" src="/hotel-miranda/img/handPickedRooms/3.car.svg" />
+ <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
  </div>
  <div class="rooms rectangle__img">
- <img class="img rectangle__snow" src="/hotel-miranda/img/handPickedRooms/4.snow.svg" />
+ <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
  </div>
  <div class="rooms rectangle__img">
- <img class="img rectangle__gym" src="/hotel-miranda/img/handPickedRooms/5.gym.svg" />
+ <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
  </div>
  <div class="rooms rectangle__img">
- <img class="img rectangle__noSmoke" src="/hotel-miranda/img/handPickedRooms/6.noSmoke.svg" />
+ <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
  </div>
  <div class="rooms rectangle__img">
- <img class="img rectangle__coctel" src="/hotel-miranda/img/handPickedRooms/7.coctel.svg" />
+ <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
  </div>
  </div>
 
  <div class="rooms__details">
- <h4 class="details__title">Minimal Duplex Room</h4>
+ <h4 class="details__title"><?php echo \htmlentities($element->roomName??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
  <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
  tempor.</p>
  <div class="details__price-room-option">
- <span class="price-room-oprion__price">$345/Night</span>
+ <span class="price-room-oprion__price">$<?php echo \htmlentities($element->price??'', ENT_QUOTES, 'UTF-8', false); ?>/Night</span>
  <span class="price-room-oprion__option">Booking Now</span>
  </div>
  </div>
  </div>
-
- <div class='section-selection-rooms__rooms' class="container-related-rooms__container-img">
- <img class="rooms__img" src="/hotel-miranda/img/fondoGris.jpg" />
-
- <!-- BOTONES PARA EL SLIDER -->
-
- <div class="">
- <a></a>
- <a></a>
- </div>
-
- <div class="rooms section-hand-picked__rectangle">
- <div class="rectangle__img">
- <img class="img rectangle__bed" src="/hotel-miranda/img/handPickedRooms/1.bed.svg" />
- </div>
- <div class="rooms rectangle__img">
- <img class="img rectangle__wifi" src="/hotel-miranda/img/handPickedRooms/2.wifi.svg" />
- </div>
- <div class="rooms rectangle__img">
- <img class="img rectangle__car" src="/hotel-miranda/img/handPickedRooms/3.car.svg" />
- </div>
- <div class="rooms rectangle__img">
- <img class="img rectangle__snow" src="/hotel-miranda/img/handPickedRooms/4.snow.svg" />
- </div>
- <div class="rooms rectangle__img">
- <img class="img rectangle__gym" src="/hotel-miranda/img/handPickedRooms/5.gym.svg" />
- </div>
- <div class="rooms rectangle__img">
- <img class="img rectangle__noSmoke" src="/hotel-miranda/img/handPickedRooms/6.noSmoke.svg" />
- </div>
- <div class="rooms rectangle__img">
- <img class="img rectangle__coctel" src="/hotel-miranda/img/handPickedRooms/7.coctel.svg" />
- </div>
- </div>
-
- <div class="rooms__details">
- <h4 class="details__title">Minimal Duplex Room</h4>
- <p class="details__text">Lorem ipsum dolor sit amet, consectetur adipi sicing elit, sed do eiusmod
- tempor.</p>
- <div class="details__price-room-option">
- <span class="price-room-oprion__price">$345/Night</span>
- <span class="price-room-oprion__option">Booking Now</span>
- </div>
- </div>
- </div>
+ <?php 
+ $count++;
+ ?>
+ <?php endif; ?>
+ <?php endif; ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ <?php endif; ?>  
 
  </div>
 
 
 
- </section>
+</section>
 
 
 
- <?php $this->stopSection(); ?>
-
-
+<?php $this->stopSection(); ?>
 <?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

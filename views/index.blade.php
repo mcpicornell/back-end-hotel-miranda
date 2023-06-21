@@ -117,44 +117,76 @@
         <h3 class="h3 text__hand-picked">Hand Picked Rooms</h3>
     </div>
 
-    <div class="section-hand-picked__rectangle">
-        <div class="rectangle__img">
-            <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
-        </div>
-        <div class="rectangle__img">
-            <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
-        </div>
-        <div class="rectangle__img">
-            <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
-        </div>
-        <div class="rectangle__img">
-            <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
-        </div>
-        <div class="rectangle__img">
-            <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
-        </div>
-        <div class="rectangle__img">
-            <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
-        </div>
-        <div class="rectangle__img">
-            <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
-        </div>
+    <div class="section-hand-picked__container-hand-picked">
+
+    
+    @if (!empty($rooms))
+        @php
+            $count = 0;
+        @endphp
+
+        @foreach ($rooms as $room)
+
+            @if ($count < 1)
+
+                <div class="container-hand-picked">
+                    <div class="section-hand-picked__rectangle">
+                        <div class="rectangle__img">
+                            <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
+                        </div>
+                        <div class="rectangle__img">
+                            <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
+                        </div>
+                        <div class="rectangle__img">
+                            <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
+                        </div>
+                        <div class="rectangle__img">
+                            <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
+                        </div>
+                        <div class="rectangle__img">
+                            <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
+                        </div>
+                        <div class="rectangle__img">
+                            <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
+                        </div>
+                        <div class="rectangle__img">
+                            <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
+                        </div>
+                    </div>
+
+                    <div class="section-hand-picked__carrusel">
+                    @if (!empty($room->photos))
+                        @php
+                            $photos = json_decode($room->photos, true);
+                        @endphp
+                        @if (is_array($photos) && count($photos) > 0)
+                        <a href="roomDetails.php?id={{ $room->roomId }}">
+                            <img class="carrusel__img-hand-picked" src="{{ $photos[0] }}" />
+                        </a>
+                        @endif
+                    @endif
+                        
+                        <div class="section-hand-picked__duplex">
+                            <h3 class="section-hand-picked__span">{{$room->roomName}}</h3>
+                            <p class="p section-hand-picked__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore.</p>
+                            <h3 class="h3 section-hand-picked__price-gold">${{$room->price}}<span class="price-gold__night">/Night</span></h3>
+                        </div>
+                    </div>
+                </div>
+               
+            @php
+            $count++;
+            @endphp
+            @endif
+            @endforeach 
+            <div class="buttons-carrusel-hand-picked">
+                <a type="button" class="button buttons__white"><img src="/../img/arrow-left.svg" /></a>
+                <a type="button" class="button buttons__gold"><img src="/../img/arrow-right.svg" /></a>
+            </div>
+            
+            @endif
     </div>
-
-    <div class="section-hand-picked__carrusel">
-        <h3>SOY UN SLIDER</h3>
-        <a type="button" class="button buttons__white"><img src="/../img/arrow-left.svg" /></a>
-        <a type="button" class="button buttons__gold"><img src="/../img/arrow-right.svg" /></a>
-
-    </div>
-
-    <div class="section-hand-picked__duplex">
-        <h3 class="section-hand-picked__span">Minimal Duplex Room</h3>
-        <p class="p section-hand-picked__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore.</p>
-        <h3 class="h3 section-hand-picked__price-gold">$345<span class="price-gold__night">/Night</span></h3>
-    </div>
-
 </section>
 
 <section class="section-intro-video">
@@ -168,9 +200,9 @@
     </div>
 
     <div class="section-intro-video__video">
-        <video class="video video__video">
-            <source src="https://www.youtube.com/watch?v=Bu3Doe45lcU" />
-            Your browser does not support the video tag.
+        <video class="video video__video" controls>
+            <source src="../img/videos/homeVideo.mp4" type="video/mp4"/>
+            Your browser does not support this video tag.
         </video>
     </div>
 

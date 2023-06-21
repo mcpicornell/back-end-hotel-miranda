@@ -57,9 +57,11 @@
         margin-top: 100px;
         margin-left: 20px;
         margin-right: 10px;
-        background-color: #C2C2C2;
-        width: 60%;
-        height: 90%;
+        width: 100%;
+    }
+
+    .video__video{
+        width: 500px;
     }
     
     .section-intro-video__button{
@@ -125,10 +127,13 @@
     .section-intro-video__video{
         margin-top: 32px;
         margin-left: 20px;
-        margin-bottom: 58px;
-        background-color: #C2C2C2;
+        margin-bottom: 0px;
         width: 335px;
         height: 270px;
+    }
+
+    .video__video{
+        width: 100%;
     }
     
     .section-intro-video__button{

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
  <link rel="stylesheet" href="style.css" type="text/css" />
  <meta charset="UTF-8">
@@ -9,6 +10,7 @@
  <title>Hotel Miranda</title>
 
 </head>
+
 <body>
  <div class="header-container">
  <div class="uptitle-header"></div>
@@ -28,7 +30,7 @@
  <img class="burger__img" src="/../img/header/line.svg" />
  <img class="burger__img" src="/../img/header/line.svg" />
  </a>
- <a href="index.html" style="text-decoration: none ; cursor: pointer;">
+ <a  style="text-decoration: none ; cursor: pointer;">
  <img class="inner__logo" src="/../img/header/H.svg" />
  <img class="inner__title" src="/../img/header/HotelMiranda.svg" />
  </a>
@@ -62,8 +64,7 @@
 
  <div class="footer__social-media">
  <img class="img social-media__img" src="/../img/socialMedia/1.facebook.svg" />
- <img class="img social-media__img" class="img social-media__img-twitter"
- src="/../img/socialMedia/2.twitter.svg" />
+ <img class="img social-media__img" class="img social-media__img-twitter" src="/../img/socialMedia/2.twitter.svg" />
  <img class="img social-media__img" src="/../img/socialMedia/3.Be.svg" />
  <img class="img social-media__img" src="/../img/socialMedia/4.linkedin.svg" />
  <img class="img social-media__img" src="/../img/socialMedia/5.youtube.svg" />
@@ -141,4 +142,5 @@
  </footer>
  <script src="/../scripts/showBurgerMenu.js"></script>
 </body>
+
 </html>
