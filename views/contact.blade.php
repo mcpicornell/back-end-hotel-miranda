@@ -46,34 +46,33 @@
     <div class="section-form-contact__img-container">
         <img class="img-container__img-form" src="/../img/fondoGris.jpg" />
     </div>
-    <form class="section-form-contact__form">
-        <div class="form__input-container-contact__form">
-            <div class="form__input-container-contact">
-                <img class="input-container-contact__img" src="/../img/form/1.fullName.svg" />
-                <input class="input-container-contact__input" placeholder="Your full name" type="text" />
-            </div>
-            <div class="form__input-container-contact">
-                <img class="input-container-contact__img" src="/../img/form/2.addPhone.svg" />
-                <input class="input-container-contact__input" placeholder="Add phone number" type="number" />
-            </div>
-            <div class="form__input-container-contact">
-                <img class="input-container-contact__img" src="/../img/form/3.emailAddress.svg" />
-
-                <input class="input-container-contact__input" placeholder="Enter email address" type="email" required />
-            </div>
-            <div class="form__input-container-contact">
-                <img class="input-container-contact__img" src="/../img/form/4.subject.svg" />
-                <input class="input-container-contact__input" placeholder="Enter subject" type="text" required />
-            </div>
+    <form class="section-form-contact__form" action="/controllers/contact.php" method="POST">
+    <div class="form__input-container-contact__form">
+        <div class="form__input-container-contact">
+            <img class="input-container-contact__img" src="/../img/form/1.fullName.svg" />
+            <input class="input-container-contact__input" placeholder="Your full name" name="name" type="text" />
         </div>
-
-        <div class="form__input-message-container">
-            <img class="input-container-contact__img" src="/../img/form/5.message.svg" />
-            <input class="input-container-contact__input" placeholder="Enter message" type="text" required />
+        <div class="form__input-container-contact">
+            <img class="input-container-contact__img" src="/../img/form/2.addPhone.svg" />
+            <input class="input-container-contact__input" placeholder="Add phone number" name="phone" type="number" />
         </div>
+        <div class="form__input-container-contact">
+            <img class="input-container-contact__img" src="/../img/form/3.emailAddress.svg" />
+            <input class="input-container-contact__input" placeholder="Enter email address" name="email" type="email" required />
+        </div>
+        <div class="form__input-container-contact">
+            <img class="input-container-contact__img" src="/../img/form/4.subject.svg" />
+            <input class="input-container-contact__input" placeholder="Enter subject" name="subject" type="text" required />
+        </div>
+    </div>
 
-        <button type="submit" class="button section-form-contact__button">GET FREE QUOTE</button>
-    </form>
+    <div class="form__input-message-container">
+        <img class="input-container-contact__img" src="/../img/form/5.message.svg" />
+        <input class="input-container-contact__input" placeholder="Enter message" name="message" type="text" required />
+    </div>
+
+    <button type="submit" class="button section-form-contact__button">GET FREE QUOTE</button>
+</form>
 </section>
 
 @endsection
