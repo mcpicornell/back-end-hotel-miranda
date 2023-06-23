@@ -42,10 +42,7 @@
 
             <img class="form-check-availability__golden.bar" src="/../img/goldenBar.svg" />
         </div>
-
-
-
-        <button class="button form-check-availability__button" type="submit">Check Availability</button>
+        <a class="button form-check-availability__button" href="/controllers/rooms.php">Check Availability</a>
     </form>
 
 </section>
@@ -184,7 +181,6 @@
                 <a type="button" class="button buttons__white"><img src="/../img/arrow-left.svg" /></a>
                 <a type="button" class="button buttons__gold"><img src="/../img/arrow-right.svg" /></a>
             </div>
-            
             @endif
     </div>
 </section>

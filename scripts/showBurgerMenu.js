@@ -13,16 +13,7 @@ burger.addEventListener("click", (event) => {
     }
 });
 
-// const roomTag = document.getElementsByClassName("section-selection-rooms__rooms");
-
-// for(i=0; i<roomTag.length; i++){
-//     roomTag[i].addEventListener("click", (event) => {
-//         const newUrl = "roomDetails.php";
-//         window.location.href = newUrl;
-//     })
-// }
-
-const headerTag = document.getElementsByClassName("header__inner")[0];
+const headerTag = document.getElementsByClassName("logo")[0];
 
 headerTag.addEventListener("click", (event) => {
     const newUrl = "/controllers/";

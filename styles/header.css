@@ -39,6 +39,11 @@
     background: #FFFFFF;
     box-shadow: 0px 14px 24px rgba(139, 139, 139, 0.25);
     margin-right: 13.52px;
+    position: relative;
+    top: 5px;
+  }
+  .inner__title {
+    position: relative;
   }
   .burger__img {
     width: 20px;
@@ -152,6 +157,8 @@
   }
   .inner__title {
     width: 137px;
+    position: relative;
+    bottom: 5px;
   }
   .burger__img {
     width: 20px;
