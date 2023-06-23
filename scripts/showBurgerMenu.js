@@ -14,8 +14,14 @@ burger.addEventListener("click", (event) => {
 });
 
 const headerTag = document.getElementsByClassName("logo")[0];
+const homeTag = document.getElementsByClassName("home")[0];
 
 headerTag.addEventListener("click", (event) => {
+    const newUrl = "/controllers/";
+    window.location.href = newUrl;
+})
+
+homeTag.addEventListener("click", (event) => {
     const newUrl = "/controllers/";
     window.location.href = newUrl;
 })

@@ -6,8 +6,7 @@
         <h4 class="section-luxury__ultimate">THE ULTIMATE LUXURY</h4>
         <h3 class="section-luxury__us">About Us</h3>
         <div class="section-luxury__container">
-            <h5 class="container__span-home">Home<span class='span-home__effect'>|</span><span class="span-home__about">About</span></h5>
-        </div>
+        <h5 class="container__span-home"><a class="home">Home</a><span class='span-home__effect'>|</span><span class="span-home__about">Rooms</span></h5>        </div>
 
     </div>
 
