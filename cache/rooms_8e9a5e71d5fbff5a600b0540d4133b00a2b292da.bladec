@@ -12,10 +12,9 @@
 
 <?php if(!empty($rooms)): ?>
 <section class="section-selection-rooms">
-
  <?php $__currentLoopData = $rooms; $this->addLoop($__currentLoopData);$this->getFirstLoop();
  foreach($__currentLoopData as $room): $loop = $this->incrementLoopIndices();  ?>
-
+ <?php if($room->isAvailable == true): ?>
  <div class='section-selection-rooms__rooms'>
  <?php if(!empty($room->photos)): ?>
  <?php 
@@ -62,7 +61,8 @@
  </div>
  </div>
  </div>
-
+ 
+ <?php endif; ?>
  <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
 
 
