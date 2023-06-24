@@ -92,4 +92,9 @@
   .details__title {
     margin-top: 0px;
   }
+}
+@media (max-width: 999px) {
+  .rooms__img {
+    height: auto;
+  }
 }/*# sourceMappingURL=section-selection-rooms.css.map */

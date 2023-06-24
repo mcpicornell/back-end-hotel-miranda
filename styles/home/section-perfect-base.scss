@@ -1,6 +1,8 @@
 @media (min-width: 1000px) {
     .section-perfect-base{
-        background: #333333;
+        background-image: url('../../img/home/views.jpg');
+        background-size: cover;
+        background-position: center;
     }
     
     .section-perfect-base__text{
@@ -150,7 +152,9 @@
 }
 @media (max-width: 999px) {
     .section-perfect-base{
-        background: #333333;
+        background-image: url('../../img/home/views.jpg');
+        background-size: cover;
+        background-position: left;
     }
     
     .section-perfect-base__text{

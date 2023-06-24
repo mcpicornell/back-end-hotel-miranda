@@ -1,5 +1,7 @@
 .section-about-us-4__section-luxury {
-  background: #333333;
+  background-image: url("../../img/about/reception.jpg");
+  background-size: cover;
+  background-position: center;
   padding-left: 20px;
   padding-top: 75px;
   padding-right: 20px;
@@ -146,7 +148,9 @@
 
 @media (min-width: 1000px) {
   .section-about-us-4__section-luxury {
-    background: #333333;
+    background-image: url("../../img/about/reception.jpg");
+    background-size: cover;
+    background-position: center;
     padding-left: 30%;
     padding-top: 150px;
     padding-right: 20px;

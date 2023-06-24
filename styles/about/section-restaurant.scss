@@ -15,6 +15,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    
 }
 
 .img-container__img-restaurant{
@@ -90,7 +91,8 @@
         margin-bottom: 32px;
         width: 30%;
         position: relative;
-        top: 20px
+        top: 20px;
+        margin-left: 10%;
     }
     
     .img-container__img-restaurant{

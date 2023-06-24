@@ -1,6 +1,8 @@
 @media (max-width: 999px) {
   .section-rooms-luxury {
-    background: #333333;
+    background-image: url("../../img/room/room.jpg");
+    background-size: cover;
+    background-position: center;
     padding-left: 20px;
     padding-top: 75px;
     padding-right: 20px;
@@ -57,7 +59,9 @@
 }
 @media (min-width: 1000px) {
   .section-rooms-luxury {
-    background: #333333;
+    background-image: url("../../img/room/room2.jpg");
+    background-size: cover;
+    background-position: center;
     padding-left: 20%;
     padding-top: 150px;
     padding-right: 20px;

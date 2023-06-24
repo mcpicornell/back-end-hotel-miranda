@@ -11,8 +11,7 @@
  </div>
 
  <div class="section-about-us-4__present">
- <img class="present__video" src="/../img/fondoGris.jpg" />
- <!-- <source class="video__about-us-video"  src="/../img/fondoGris.jpg"> -->
+ <img alt="check-in" class="present__video" src="/../img/about/check-in.jpg" />
 
 
  <h3 class="present__text">Hello. Our hotel has been present for over 20 years. We make the best for all our
@@ -45,7 +44,7 @@
 
 <section class="section-restaurant">
  <div class="section-restaurant__img-container">
- <img class="img-container__img-restaurant" src="/../img/fondoGris.jpg">
+ <img alt="facilities" class="img-container__img-restaurant" src="/../img/about/facilities.jpg">
  </div>
 
  <div class="section-restaurant__restaurant">
@@ -194,9 +193,9 @@
 
 
  <div class="section-fun-facts__carrusel">
- <img class="carrusel__fun-facts" src="/../img/fondoGris.jpg">
+ <img alt="indoor-pool" class="carrusel__fun-facts" src="/../img/about/carrusel/indoor-pool.jpg">
 
- <img class="carrusel__fun-facts2" src="/../img/fondoGris.jpg">
+ <img alt="patio" class="carrusel__fun-facts2" src="/../img/about/carrusel/patio.jpg">
  </div>
 
 

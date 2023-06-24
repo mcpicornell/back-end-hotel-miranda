@@ -14,7 +14,7 @@
  <img class="ways-to-contact__img" src="/../img/hotelAddress.svg" />
  <div class="ways-to-contact__container">
  <h5 class="container__name-contact">Hotel Address</h5>
- <span class="container__info-contact">19/A, Cirikon City hall Tower New York, NYC</span>
+ <span class="container__info-contact">C/ de la Princesa, 31, 2º, 28008 Madrid</span>
  </div>
  <h6 class="ways-to-contact__number">01</h6>
  </div>
@@ -43,7 +43,7 @@
 
 <section class="section-form-contact">
  <div class="section-form-contact__img-container">
- <img class="img-container__img-form" src="/../img/fondoGris.jpg" />
+ <img alt="oxygenAcademy-location" class="img-container__img-form" src="/../img/contact/oxygenAcademy-location.jpg" />
  </div>
  <form class="section-form-contact__form" action="/controllers/contact.php" method="POST">
  <div class="form__input-container-contact__form">
