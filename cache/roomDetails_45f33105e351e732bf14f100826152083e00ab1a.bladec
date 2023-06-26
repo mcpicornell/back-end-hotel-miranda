@@ -144,7 +144,7 @@ var_dump($room)
 
 <section class="section-founder">
  <div class="section-founder__img-container">
- <img class="img-container__founder-img" src="/../img/fondoGris.jpg" />
+ <img alt="Rosalina D. William" class="img-container__founder-img" src="/../img/roomDetails/rosalina.jpg" />
  <div class="img-container__check-container">
  <img class="check-container__circle" src="/../img/checkCircle.svg" />
 
