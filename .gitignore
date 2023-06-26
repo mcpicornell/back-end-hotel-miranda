@@ -1,6 +1,8 @@
-/vendor/
+
 /cache/
-.env
 
-config.php
+/app/config.php
+/app/config.php
 
+commands.txt
+docker-compose.yml
