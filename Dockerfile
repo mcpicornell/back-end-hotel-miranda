@@ -6,6 +6,7 @@ COPY ./vendor /var/www/html/
 
 
 # Instalar extensiones de PHP adicionales si es necesario
+RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli
 RUN apt-get update && apt-get install -y \
     mysql-client
