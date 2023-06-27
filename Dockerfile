@@ -4,6 +4,7 @@ FROM php:8.0-apache
 COPY ./app /var/www/html/
 COPY ./vendor /var/www/html/
 
+
 # Instalar extensiones de PHP adicionales si es necesario
 RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli
 RUN apt-get update && apt-get install -y \
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     mysql-server \
     php-mysql
 # Configurar el servidor Apache si es necesario
-RUN sudo a2enmod rewrite
+RUN a2enmod rewrite
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 
 # Establecer permisos para los archivos y directorios copiados

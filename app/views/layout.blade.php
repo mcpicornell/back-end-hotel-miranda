@@ -16,10 +16,10 @@
         <header class="header">
             <h5 class="uptitle-header__h5">We Make Your Feel Comfortable</h5>
             <div class="header__inner-li">
-                <li class="li inner-li__element"><a href="about.php">About Us</a></li>
-                <li class="li inner-li__element"><a href="rooms.php">Rooms</a></li>
-                <li class="li inner-li__element"><a href="offers.php">Offers</a></li>
-                <li class="li inner-li__element"><a href="contact.php">Contact</a></li>
+                <li class="li inner-li__element"><a href="/about">About Us</a></li>
+                <li class="li inner-li__element"><a href="/rooms">Rooms</a></li>
+                <li class="li inner-li__element"><a href="/offers">Offers</a></li>
+                <li class="li inner-li__element"><a href="/contact">Contact</a></li>
             </div>
 
             <div class="header__inner">

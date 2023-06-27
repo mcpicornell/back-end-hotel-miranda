@@ -5,7 +5,9 @@ require_once __DIR__ . '/../database/database.php';
 use eftec\bladeone\BladeOne;
 
 $views = __DIR__ . '/../views';
-$cache = __DIR__ . '/../../cache';
+$currentPath = realpath(__DIR__);
+$basePath = realpath($currentPath . '/..');
+$cache = $basePath . '/cache';
 
 $blade = new Bladeone($views, $cache, Bladeone::MODE_AUTO);
 
