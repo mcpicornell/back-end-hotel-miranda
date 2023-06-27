@@ -20,7 +20,7 @@
                         $photos = json_decode($room->photos, true);
                     @endphp
                     @if (is_array($photos) && count($photos) > 0)
-                    <a href="roomDetails.php?id={{ $room->roomId }}">
+                    <a href="roomDetails/{{ $room->roomId }}">
                         <img class="rooms__img" src="{{ $photos[0] }}" />
                     </a>
                     @endif

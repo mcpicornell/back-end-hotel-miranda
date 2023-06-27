@@ -17,13 +17,14 @@ const headerTag = document.getElementsByClassName("logo")[0];
 const homeTag = document.getElementsByClassName("home")[0];
 const locationContactImgTag = document.getElementsByClassName("img-container__img-form")[0];
 
+
 headerTag.addEventListener("click", (event) => {
-    const newUrl = "/";
+    const newUrl = "/home";
     window.location.href = newUrl;
 })
 
 homeTag.addEventListener("click", (event) => {
-    const newUrl = "/";
+    const newUrl = "/home";
     window.location.href = newUrl;
 })
 

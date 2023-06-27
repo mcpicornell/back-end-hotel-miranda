@@ -197,7 +197,7 @@ var_dump($room)
             @endphp
             @if (is_array($photos) && count($photos) > 0)
             
-            <a href="roomDetails.php?id={{ $element->roomId }}">
+            <a href="{{ $element->roomId }}">
                 <img class="rooms__img" src="{{ $photos[0] }}" />
             </a>
             

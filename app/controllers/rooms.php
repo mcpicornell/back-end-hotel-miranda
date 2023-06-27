@@ -9,6 +9,11 @@ $currentPath = realpath(__DIR__);
 $basePath = realpath($currentPath . '/..');
 $cache = $basePath . '/cache';
 
+// Verificar y crear la carpeta cache si no existe
+if (!file_exists($cache)) {
+    mkdir($cache, 0777, true);
+}
+
 $blade = new Bladeone($views, $cache, Bladeone::MODE_AUTO);
 
 $sql = "SELECT * FROM rooms";
@@ -29,10 +34,10 @@ if ($result->num_rows > 0) {
         $room->roomType = $row["roomType"];
         $rooms[] = $room;
     }
-}else {
+} else {
     echo "No rooms found.";
-};
+}
 
 echo $blade->run('rooms', ['rooms' => $rooms]);
-$connectionMiranda_DB->close()
+$connectionMiranda_DB->close();
 ?>
