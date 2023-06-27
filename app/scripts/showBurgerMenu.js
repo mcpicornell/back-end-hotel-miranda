@@ -18,12 +18,12 @@ const homeTag = document.getElementsByClassName("home")[0];
 const locationContactImgTag = document.getElementsByClassName("img-container__img-form")[0];
 
 headerTag.addEventListener("click", (event) => {
-    const newUrl = "/controllers/";
+    const newUrl = "/";
     window.location.href = newUrl;
 })
 
 homeTag.addEventListener("click", (event) => {
-    const newUrl = "/controllers/";
+    const newUrl = "/";
     window.location.href = newUrl;
 })
 
