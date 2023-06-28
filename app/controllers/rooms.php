@@ -9,7 +9,6 @@ $currentPath = realpath(__DIR__);
 $basePath = realpath($currentPath . '/..');
 $cache = $basePath . '/cache';
 
-// Verificar y crear la carpeta cache si no existe
 if (!file_exists($cache)) {
     mkdir($cache, 0777, true);
 }
