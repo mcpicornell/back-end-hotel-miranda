@@ -1,4 +1,5 @@
 .section-popular-rooms{
+    display: none;
     margin-top: 60px;
     margin-bottom: 60px;
     padding: 10px 20px 40px 20px;
@@ -6,8 +7,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    width: 10px;
+    left: -300px;
 }
 
+.section-popular-rooms-swiper{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 10px 20px 40px 20px;
+    background: #222222;
+    visibility: visible;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+}
 
 
 .section-popular-rooms__subtitle{
@@ -40,13 +56,26 @@
 }
 
 @media (min-width: 1000px){
+
+    .section-popular-rooms-swiper{
+        display: none;
+        visibility: hidden;
+        position: absolute;
+        left: -300px;
+        overflow: hidden;
+    }
     .section-popular-rooms{
         padding-top: 65px;
         margin-bottom: 100px;
+        visibility: visible;
+        position: relative;
+        left: 0px;
+        overflow: hidden;
     }
     .section-popular-rooms__img-container-slider{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         margin: 0px 5% 30px 5%;
+        overflow: hidden;
     }
 }

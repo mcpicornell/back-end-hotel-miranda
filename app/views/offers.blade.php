@@ -136,7 +136,7 @@ $count = 0;
             @foreach($rooms as $room)
                 @if($count < 3)
     
-                <div class='section-selection-rooms__rooms' id="rooms-card" style="margin: 0 auto; width: 90%; padding-bottom: 35px; border-radius: 5px;">
+                <div class='section-selection-rooms__rooms' id="rooms-card" style="margin: 0 auto; width: 90%; padding-bottom: 35px; border-radius: 5px; overflow-y: hidden;">
 
                 @if (!empty($room->photos))
                     @php
@@ -192,6 +192,103 @@ $count = 0;
         
     </div>
 
+</section> 
+
+<section class="section-popular-rooms-swiper">
+    <h4 class="subtitle section-popular-rooms__subtitle">POPULAR LIST</h4>
+    <h3 class="title section-popular-rooms__title">Popular Rooms</h3>
+
+    <div class="swiper section-hand-picked__container-hand-picked">
+    @if (!empty($rooms))
+        @php
+            $count = 0;
+        @endphp
+
+        <div class="swiper-wrapper wrapper-hand-picked-container">
+            @foreach ($rooms as $room)
+
+                @if ($count < 5)
+
+                    <div class="swiper-slide container-hand-picked">
+                        <div class="section-hand-picked__rectangle">
+                            <div class="rectangle__img">
+                                <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
+                            </div>
+                        </div>
+
+                        <div class="section-hand-picked__carrusel">
+                            @if (!empty($room->photos))
+                                @php
+                                    $photos = json_decode($room->photos, true);
+                                @endphp
+                                @if (is_array($photos) && count($photos) > 0)
+                                    <a href="roomDetails.php?id={{ $room->roomId }}">
+                                        <img style="width: 100%;" class="carrusel__img-hand-picked" src="{{ $photos[0] }}" />
+                                    </a>
+                                @endif
+                            @endif
+                            <div class="section-hand-picked__duplex" style="text-align: center; width: 90%; height: 170px;">
+                                <h3 class="section-hand-picked__span">{{$room->roomName}}</h3>
+                                <p class="p section-hand-picked__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                <h3 class="h3 section-hand-picked__price-gold">${{$room->price}}<span class="price-gold__night">/Night</span></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    @php
+                        $count++;
+                    @endphp
+                @endif
+            @endforeach
+
+        </div>
+
+        <div class="swiper-button-prev"><img class="white__button-img" src="/../img/arrow-left.svg" /></div>
+        <div class="swiper-button-next"><img class="gold__button-img" src="/../img/arrow-right.svg" /></div>
+    @endif
+</div>
 </section>
+
+<script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
+
+    const handPickedSwipper = new Swiper('.section-hand-picked__container-hand-picked', {
+        loop: true,
+        centeredSlides: true, 
+        slidesPerView: 1,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+            1000: {
+                slidesPerView: "auto",
+                spaceBetween: 300,
+                loop: true,
+            }
+        }
+    });
+
+
+</script>
 
 @endsection

@@ -13,10 +13,6 @@
 
 <section class="section-room-availability">
 
-<!-- <?php 
-var_dump($room)
- ?> -->
-
 <?php if(!empty($room)): ?>
 
 
@@ -24,7 +20,7 @@ var_dump($room)
  <div class="container__section-room-availability">
  <h4 class="subtitle section-room-availability__subtitle"><?php echo \htmlentities($room->roomType??'', ENT_QUOTES, 'UTF-8', false); ?></h4>
  <h3 class="title section-room-availability__title"><?php echo \htmlentities($room->roomName??'', ENT_QUOTES, 'UTF-8', false); ?></h3>
- <h3 class="section-hand-picked__price-gold section-room-availability__price-gold">$<?php echo \htmlentities($room->price??'', ENT_QUOTES, 'UTF-8', false); ?><span class="price-gold__night">/Night</span></h3>
+ <h3 class="section-hand-picked__price-gold section-room-availability__price-gold" style="margin-right: 15px;">$<?php echo \htmlentities($room->price??'', ENT_QUOTES, 'UTF-8', false); ?><span class="price-gold__night">/Night</span></h3>
  </div>
 
 
@@ -34,7 +30,7 @@ var_dump($room)
  $photos = json_decode($room->photos, true);
  ?>
  <?php if(is_array($photos) && count($photos) > 0): ?>
- <img class="img__room-details" src="<?php echo \htmlentities($photos[0]??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="room-photo">
+ <img class="img__room-details" style="max-width: 600px;" src="<?php echo \htmlentities($photos[0]??'', ENT_QUOTES, 'UTF-8', false); ?>" alt="room-photo">
  <?php endif; ?>
  <?php endif; ?>
  </div>
@@ -177,6 +173,85 @@ var_dump($room)
  <h3 class="title section-related-rooms__title">Related Rooms</h3>
  <hr class="hr section-related-rooms__hr" />
 
+ <div class="swiper section-related-rooms__container">
+
+ <div class="swiper section-hand-picked__container-hand-picked">
+ <?php if(!empty($rooms)): ?>
+ <?php 
+ $count = 0;
+ ?>
+
+ <div class="swiper-wrapper wrapper-hand-picked-container">
+ <?php $__currentLoopData = $rooms; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $element): $loop = $this->incrementLoopIndices();  ?>
+ <?php if($element->roomType == $room->roomType): ?>
+ <?php if($count < 2): ?>
+
+ <div class="swiper-slide container-hand-picked">
+ <div class="section-hand-picked__rectangle">
+ <div class="rectangle__img">
+ <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
+ </div>
+ <div class="rectangle__img">
+ <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
+ </div>
+ <div class="rectangle__img">
+ <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
+ </div>
+ <div class="rectangle__img">
+ <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
+ </div>
+ <div class="rectangle__img">
+ <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
+ </div>
+ <div class="rectangle__img">
+ <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
+ </div>
+ <div class="rectangle__img">
+ <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
+ </div>
+ </div>
+
+ <div class="section-hand-picked__carrusel">
+ <?php if(!empty($element->photos)): ?>
+ <?php 
+ $photos = json_decode($element->photos, true);
+ ?>
+ <?php if(is_array($photos) && count($photos) > 0): ?>
+ <a href="roomDetails.php?id=<?php echo \htmlentities($element->roomId??'', ENT_QUOTES, 'UTF-8', false); ?>">
+ <img class="carrusel__img-hand-picked" src="<?php echo \htmlentities($photos[0]??'', ENT_QUOTES, 'UTF-8', false); ?>" />
+ </a>
+ <?php endif; ?>
+ <?php endif; ?>
+ <div class="section-hand-picked__duplex">
+ <h3 class="section-hand-picked__span"><?php echo \htmlentities($element->roomName??'', ENT_QUOTES, 'UTF-8', false); ?></h3>
+ <p class="p section-hand-picked__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+ <h3 class="h3 section-hand-picked__price-gold">$<?php echo \htmlentities($element->price??'', ENT_QUOTES, 'UTF-8', false); ?><span class="price-gold__night">/Night</span></h3>
+ </div>
+ </div>
+ </div>
+
+ <?php 
+ $count++;
+ ?>
+ <?php endif; ?>
+ <?php endif; ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ </div>
+
+ <div class="swiper-button-prev"><img class="white__button-img" src="/../img/arrow-left.svg" /></div>
+ <div class="swiper-button-next"><img class="gold__button-img" src="/../img/arrow-right.svg" /></div>
+
+ <?php endif; ?>
+ </div>
+ </div>
+</section>
+
+<section class="section-related-rooms-no-swiper">
+ <h3 class="title section-related-rooms__title">Related Rooms</h3>
+ <hr class="hr section-related-rooms__hr" />
+
  <div class="section-related-rooms__container-related-rooms">
 
  <?php if(!empty($rooms)): ?>
@@ -253,7 +328,29 @@ var_dump($room)
 
 </section>
 
+<script type="module">
+ import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 
+ const handPickedSwipper = new Swiper('.section-hand-picked__container-hand-picked', {
+ loop: true,
+ centeredSlides: true, 
+ slidesPerView: 1,
+ navigation: {
+ nextEl: ".swiper-button-next",
+ prevEl: ".swiper-button-prev",
+ },
+
+ breakpoints: {
+ 1000: {
+ slidesPerView: "auto",
+ spaceBetween: 100,
+ loop: true,
+ }
+ }
+ });
+
+
+</script>
 
 <?php $this->stopSection(); ?>
 <?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

@@ -5,16 +5,33 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 40px;
+    overflow-x: hidden;
 }
 
+.section-slider-facilities-no-slider{
+    background: #222222;
+    margin-bottom: 60px;
+    padding-bottom: 73px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 40px;
+    position: absolute;
+    visibility: hidden;
+    left: -300%;
+    overflow-x: hidden;
+}
 .section-slider-facilities__carrusel{
     margin-top: 32px;
     background-color: #292929;
+    display: flex;
+    width: 100%;
 }
 
 .carrusel__carrusel{
-    margin-top: 32px;
     background-color: #292929;
+    width: 90%;
+    flex: 0 0 auto;
+    
 }
 
 .section-slider-facilities__subtitle{
@@ -40,7 +57,30 @@
     letter-spacing: -1.2px;
     color: #FFFFFF;
     margin: 0px;
-}   
+}
+
+.swiper-pagination {
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(237, 237, 237, 1);
+    opacity: 0.8;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: rgba(190, 173, 142, 1);
+  }
 
 
 .img4__span01{
@@ -99,6 +139,18 @@
 
 @media (min-width: 1000px) {
 
+    .section-slider-facilities-no-slider{
+        background: #222222;
+        margin-bottom: 60px;
+        padding-bottom: 73px;
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 40px;
+        position: relative;
+        visibility: visible;
+        left: 0px;
+    }
+
     .section-slider-facilities{
         background: #222222;
         margin-bottom: 60px;
@@ -106,6 +158,9 @@
         padding-left: 10%;
         padding-right: 10%;
         padding-top: 40px;
+        position: absolute;
+        visibility: hidden;
+        left: -300%;
     }
     
     .section-slider-facilities__carrusel{

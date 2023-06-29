@@ -7,6 +7,7 @@
     margin-left: 20px;
     position: relative;
     overflow: hidden;
+    overflow-x: hidden;
 }
 
 .section-hand-picked__container-hand-picked{
@@ -19,8 +20,6 @@
 
 .wrapper-hand-picked-container{
     display: flex;
-    margin: 0 auto;
-    width: 50%;
 }
 
 .swiper-button-next {
@@ -78,8 +77,6 @@
 
 .wrapper-hand-picked-container{
     display: flex;
-    margin: 0 auto;
-    width: 100%;
 }
 
 .section-hand-picked__container-hand-picked{
@@ -91,7 +88,6 @@
 .container-hand-picked{
     width: 900px;
 }
-   
 
 .section-hand-picked__text{
     display: flex;
@@ -257,8 +253,8 @@
         transform: translateY(-50%);
         width: 40px;
         height: 40px;
-        background-color: #FFFFFF;
-        color: #FFFFFF;
+        background-color: #F8F8F8;
+        color: #F8F8F8;
         font-size: 18px;
         text-align: center;
         line-height: 40px;

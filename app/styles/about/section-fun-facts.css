@@ -69,9 +69,14 @@
 .section-fun-facts__carrusel {
   width: 100%;
   margin-bottom: 82px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  overflow-y: hidden;
+}
+
+.section-fun-facts__carrusel-no-swiper {
+  position: absolute;
+  left: -300%;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .carrusel__fun-facts {
@@ -79,16 +84,21 @@
   margin: 0 auto;
 }
 
-.carrusel__fun-facts2 {
-  position: absolute;
-  visibility: hidden;
-  left: -1000000px;
-}
-
 @media (min-width: 1000px) {
   .sections-fun-facts__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .section-fun-facts__carrusel-no-swiper {
+    width: 100%;
+    margin-bottom: 82px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+    visibility: visible;
   }
   .section-fun-facts__carrusel {
     width: 100%;
@@ -96,6 +106,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
+    position: absolute;
+    left: -300%;
+    overflow: hidden;
+    visibility: hidden;
   }
   .carrusel__fun-facts {
     width: 95%;

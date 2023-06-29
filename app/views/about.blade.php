@@ -58,7 +58,7 @@
     </div>
 </section>
 
-<section class="section-slider-facilities">
+<section class="section-slider-facilities-no-slider">
     <h4 class="section-slider-facilities__subtitle">FACILITIES</h4>
     <h3 class="section-slider-facilities__title">Core Features</h3>
 
@@ -153,8 +153,107 @@
             </div>
         </div>
     </div>
+</section>
 
+<section class="section-slider-facilities">
+    <h4 class="section-slider-facilities__subtitle">FACILITIES</h4>
+    <h3 class="section-slider-facilities__title">Core Features</h3>
 
+    <div class="swiper facilities">
+
+    <div class="swiper-wrapper section-slider-facilities__carrusel">
+        <div class="swiper-slide carrusel__carrusel">
+            <div class="carrusel__img4">
+                <h3 class="img4__span01">01</h3>
+                <div class="img4__container-goldFinger4">
+                    <img class="container-goldFinger4" src="/../img/features/1.goldFinger.svg" />
+                </div>
+            </div>
+
+            <div class="carrusel__container-high4">
+                <h3 class="container-high4__title">Have High Rating</h3>
+                <p class="container-high4__p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+        </div>
+
+        <div class="swiper-slide carrusel__carrusel">
+            <div class="carrusel__img4">
+                <h3 class="img4__span01">02</h3>
+                <div class="img4__container-goldFinger4">
+                    <img class="container-goldFinger4" src="/../img/features/2.hours.svg" />
+                </div>
+            </div>
+
+            <div class="carrusel__container-high4">
+                <h3 class="container-high4__title">Quiet Hours</h3>
+                <p class="container-high4__p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+        </div>
+
+        <div class="swiper-slide carrusel__carrusel">
+            <div class="carrusel__img4">
+                <h3 class="img4__span01">03</h3>
+                <div class="img4__container-goldFinger4">
+                    <img class="container-goldFinger4" src="/../img/features/3.location.svg" />
+                </div>
+            </div>
+
+            <div class="carrusel__container-high4">
+                <h3 class="container-high4__title">Best Locations</h3>
+                <p class="container-high4__p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+        </div>
+
+        <div class="swiper-slide carrusel__carrusel">
+            <div class="carrusel__img4">
+                <h3 class="img4__span01">04</h3>
+                <div class="img4__container-goldFinger4">
+                    <img class="container-goldFinger4" src="/../img/features/4.cancellation.svg" />
+                </div>
+            </div>
+
+            <div class="carrusel__container-high4">
+                <h3 class="container-high4__title">Free Cancellation</h3>
+                <p class="container-high4__p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+        </div>
+
+        <div class="swiper-slide carrusel__carrusel">
+            <div class="carrusel__img4">
+                <h3 class="img4__span01">05</h3>
+                <div class="img4__container-goldFinger4">
+                    <img class="container-goldFinger4" src="/../img/features/5.payment.svg" />
+                </div>
+            </div>
+
+            <div class="carrusel__container-high4">
+                <h3 class="container-high4__title">Payment Options</h3>
+                <p class="container-high4__p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+        </div>
+
+        <div class="swiper-slide carrusel__carrusel">
+            <div class="carrusel__img4">
+                <h3 class="img4__span01">06</h3>
+                <div class="img4__container-goldFinger4">
+                    <img class="container-goldFinger4" src="/../img/features/6.offers.svg" />
+                </div>
+            </div>
+
+            <div class="carrusel__container-high4">
+                <h3 class="container-high4__title">Special Offers</h3>
+                <p class="container-high4__p"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna..</p>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    </div>
 </section>
 
 <section class="section-fun-facts">
@@ -192,13 +291,43 @@
 
 
 
-    <div class="section-fun-facts__carrusel">
+    <div class="section-fun-facts__carrusel-no-swiper">
         <img alt="indoor-pool" class="carrusel__fun-facts" src="/../img/about/carrusel/indoor-pool.jpg">
 
-        <img alt="patio" class="carrusel__fun-facts2" src="/../img/about/carrusel/patio.jpg">
+        <img alt="patio" class="carrusel__fun-facts" src="/../img/about/carrusel/patio.jpg">
+    </div>
+
+    <div class="swiper section-fun-facts__carrusel">
+        <div class="swiper-wrapper" style="display: flex;">
+            <img alt="indoor-pool" class="swiper-slide carrusel__fun-facts" src="/../img/about/carrusel/indoor-pool.jpg">
+            <img alt="patio" class="swiper-slide carrusel__fun-facts" src="/../img/about/carrusel/patio.jpg">
+        </div>
+        <div class="swiper-pagination" style="margin-top: 20px;"></div>
     </div>
 
 
 </section>
+<script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 
+    const facilitiesSwipper = new Swiper('.facilities', {
+        loop: false,
+        slidesPerView: "auto",
+        spaceBetween: 150,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    const funFactsSwipper = new Swiper('.section-fun-facts__carrusel', {
+        loop: false,
+        slidesPerView: "auto",
+        spaceBetween: 150,
+        pagination: {
+            el: '.swiper-pagination ',
+            clickable: true,
+        },
+    });
+</script>
 @endsection

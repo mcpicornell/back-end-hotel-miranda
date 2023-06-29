@@ -13,10 +13,6 @@
 
 <section class="section-room-availability">
 
-<!-- @php
-var_dump($room)
-@endphp -->
-
 @if (!empty($room))
 
 
@@ -24,7 +20,7 @@ var_dump($room)
         <div class="container__section-room-availability">
             <h4 class="subtitle section-room-availability__subtitle">{{$room->roomType}}</h4>
             <h3 class="title section-room-availability__title">{{$room->roomName}}</h3>
-            <h3 class="section-hand-picked__price-gold section-room-availability__price-gold">${{$room->price}}<span class="price-gold__night">/Night</span></h3>
+            <h3 class="section-hand-picked__price-gold section-room-availability__price-gold" style="margin-right: 15px;">${{$room->price}}<span class="price-gold__night">/Night</span></h3>
         </div>
 
 
@@ -34,7 +30,7 @@ var_dump($room)
                 $photos = json_decode($room->photos, true);
             @endphp
             @if (is_array($photos) && count($photos) > 0)
-            <img class="img__room-details" src="{{ $photos[0] }}" alt="room-photo">
+            <img class="img__room-details" style="max-width: 600px;" src="{{ $photos[0] }}" alt="room-photo">
             @endif
             @endif
         </div>
@@ -177,6 +173,84 @@ var_dump($room)
     <h3 class="title section-related-rooms__title">Related Rooms</h3>
     <hr class="hr section-related-rooms__hr" />
 
+    <div class="swiper section-related-rooms__container">
+
+    <div class="swiper section-hand-picked__container-hand-picked">
+    @if (!empty($rooms))
+        @php
+            $count = 0;
+        @endphp
+
+        <div class="swiper-wrapper wrapper-hand-picked-container">
+            @foreach ($rooms as $element)
+            @if($element->roomType == $room->roomType)
+                @if ($count < 2)
+
+                    <div class="swiper-slide container-hand-picked">
+                        <div class="section-hand-picked__rectangle">
+                            <div class="rectangle__img">
+                                <img class="img rectangle__bed" src="/../img/handPickedRooms/1.bed.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__wifi" src="/../img/handPickedRooms/2.wifi.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__car" src="/../img/handPickedRooms/3.car.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__snow" src="/../img/handPickedRooms/4.snow.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__gym" src="/../img/handPickedRooms/5.gym.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__noSmoke" src="/../img/handPickedRooms/6.noSmoke.svg" />
+                            </div>
+                            <div class="rectangle__img">
+                                <img class="img rectangle__coctel" src="/../img/handPickedRooms/7.coctel.svg" />
+                            </div>
+                        </div>
+
+                        <div class="section-hand-picked__carrusel">
+                            @if (!empty($element->photos))
+                                @php
+                                    $photos = json_decode($element->photos, true);
+                                @endphp
+                                @if (is_array($photos) && count($photos) > 0)
+                                    <a href="roomDetails.php?id={{ $element->roomId }}">
+                                        <img class="carrusel__img-hand-picked" src="{{ $photos[0] }}" />
+                                    </a>
+                                @endif
+                            @endif
+                            <div class="section-hand-picked__duplex">
+                                <h3 class="section-hand-picked__span">{{$element->roomName}}</h3>
+                                <p class="p section-hand-picked__p">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                                <h3 class="h3 section-hand-picked__price-gold">${{$element->price}}<span class="price-gold__night">/Night</span></h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    @php
+                        $count++;
+                    @endphp
+                @endif
+            @endif
+            @endforeach
+
+        </div>
+
+        <div class="swiper-button-prev"><img class="white__button-img" src="/../img/arrow-left.svg" /></div>
+        <div class="swiper-button-next"><img class="gold__button-img" src="/../img/arrow-right.svg" /></div>
+
+    @endif
+    </div>
+    </div>
+</section>
+
+<section class="section-related-rooms-no-swiper">
+    <h3 class="title section-related-rooms__title">Related Rooms</h3>
+    <hr class="hr section-related-rooms__hr" />
+
     <div class="section-related-rooms__container-related-rooms">
 
     @if(!empty($rooms))
@@ -252,6 +326,28 @@ var_dump($room)
 
 </section>
 
+<script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.esm.browser.min.js'
 
+    const handPickedSwipper = new Swiper('.section-hand-picked__container-hand-picked', {
+        loop: true,
+        centeredSlides: true, 
+        slidesPerView: 1,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+            1000: {
+                slidesPerView: "auto",
+                spaceBetween: 100,
+                loop: true,
+            }
+        }
+    });
+
+
+</script>
 
 @endsection
