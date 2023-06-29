@@ -3,16 +3,12 @@
 @section('content')
 
 
-<section class="section-rooms-luxury">
+<section class="section-rooms-luxury" style="background-image: url('../img/offers/offers.jpg');background-size: cover;background-position: center;">
     <h4 class="section-rooms-luxury__ultimate">THE ULTIMATE LUXURY</h4>
     <h3 class="section-rooms-luxury__room">Our Offers</h3>
     <div class="section-luxury__container">
-    <h5 class="container__span-home"><a class="home">Home</a><span class='span-home__effect'>|</span><span class="span-home__about">Rooms</span></h5>    </div>
+    <h5 class="container__span-home"><a class="home">Home</a><span class='span-home__effect'>|</span><span class="span-home__about">Offers</span></h5>    </div>
 </section>
-
-
-
-
 
 @php
 $count = 0;

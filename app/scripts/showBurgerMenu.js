@@ -36,5 +36,8 @@ locationContactImgTag.addEventListener("click", (event) => {
     window.open(newUrl);
 })
 
-
-
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    
+    Swal.fire("Success!", "We will contact you shortly!", "success");
+  });

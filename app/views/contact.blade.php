@@ -2,11 +2,11 @@
 
 @section('content')
 
-<section class="section-rooms-luxury">
+<section class="section-rooms-luxury" style="background-image: url('../img/contact/contact.jpg');background-size: cover;background-position: center;">
     <h4 class="section-rooms-luxury__ultimate">THE ULTIMATE LUXURY</h4>
-    <h3 class="section-rooms-luxury__room">Our Offers</h3>
+    <h3 class="section-rooms-luxury__room">Contact</h3>
     <div class="section-luxury__container">
-    <h5 class="container__span-home"><a class="home">Home</a><span class='span-home__effect'>|</span><span class="span-home__about">Rooms</span></h5>    </div>
+    <h5 class="container__span-home"><a class="home">Home</a><span class='span-home__effect'>|</span><span class="span-home__about">Contact</span></h5>    </div>
 </section>
 
 <section class="section-contact">
@@ -45,7 +45,7 @@
     <div class="section-form-contact__img-container">
         <img alt="oxygenAcademy-location" class="img-container__img-form" src="/../img/contact/oxygenAcademy-location.jpg" />
     </div>
-    <form class="section-form-contact__form" action="/controllers/contact.php" method="POST">
+    <form id="contactForm" class="section-form-contact__form" action="/controllers/contact.php" method="POST">
     <div class="form__input-container-contact__form">
         <div class="form__input-container-contact">
             <img class="input-container-contact__img" src="/../img/form/1.fullName.svg" />
@@ -73,5 +73,5 @@
     <button type="submit" class="button section-form-contact__button">GET FREE QUOTE</button>
 </form>
 </section>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
