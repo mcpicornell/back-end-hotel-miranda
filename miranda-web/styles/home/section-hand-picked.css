@@ -239,7 +239,7 @@
   }
   .swiper-button-next img {
     top: 16px;
-    right: 0px;
+    right: 16px;
   }
   .swiper-button-next img :hover {
     color: #FFFFFF;
@@ -263,7 +263,7 @@
   .swiper-button-prev img {
     top: 14px;
     position: absolute;
-    right: 0px;
+    right: 16px;
   }
   .section-hand-picked__container-hand-picked {
     display: flex;
