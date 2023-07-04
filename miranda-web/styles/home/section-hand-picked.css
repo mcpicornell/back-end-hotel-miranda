@@ -40,8 +40,6 @@
 }
 .swiper-button-next img {
   position: absolute;
-  top: 18px;
-  left: 17px;
 }
 .swiper-button-next img :hover {
   color: #FFFFFF;
@@ -64,7 +62,6 @@
   z-index: 1;
 }
 .swiper-button-prev img {
-  position: relative;
   top: 18px;
 }
 
@@ -237,7 +234,6 @@
     z-index: 1;
   }
   .swiper-button-next img {
-    position: relative;
     top: 16px;
   }
   .swiper-button-next img :hover {
@@ -260,7 +256,6 @@
     z-index: 1;
   }
   .swiper-button-prev img {
-    position: relative;
     top: 16px;
   }
   .section-hand-picked__container-hand-picked {
