@@ -39,8 +39,9 @@
   z-index: 1;
 }
 .swiper-button-next img {
-  position: relative;
-  top: 12px;
+  position: absolute;
+  top: 18px;
+  left: 17px;
 }
 .swiper-button-next img :hover {
   color: #FFFFFF;
@@ -64,7 +65,7 @@
 }
 .swiper-button-prev img {
   position: relative;
-  top: 12px;
+  top: 18px;
 }
 
 .swiper-button-next {
