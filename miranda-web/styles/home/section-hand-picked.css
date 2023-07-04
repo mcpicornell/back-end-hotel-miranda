@@ -40,6 +40,8 @@
 }
 .swiper-button-next img {
   position: absolute;
+  top: 15px;
+  right: 13px;
 }
 .swiper-button-next img :hover {
   color: #FFFFFF;
@@ -62,7 +64,9 @@
   z-index: 1;
 }
 .swiper-button-prev img {
-  top: 18px;
+  top: 14px;
+  position: absolute;
+  right: 15px;
 }
 
 .swiper-button-next {
@@ -235,6 +239,7 @@
   }
   .swiper-button-next img {
     top: 16px;
+    right: 0px;
   }
   .swiper-button-next img :hover {
     color: #FFFFFF;
@@ -256,7 +261,9 @@
     z-index: 1;
   }
   .swiper-button-prev img {
-    top: 16px;
+    top: 14px;
+    position: absolute;
+    right: 0px;
   }
   .section-hand-picked__container-hand-picked {
     display: flex;
